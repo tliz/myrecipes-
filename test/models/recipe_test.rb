@@ -4,12 +4,18 @@ class RecipeTest < ActiveSupport::TestCase
 
 	# Recipe object
 	def setup
+		@chef = Chef.create(chefname: "bob", email: "bob@example.com")
 		# Instance variable that can be accessed by rest of tests
-		@recipe = Recipe.new(name: "chicken parm", summary: "This is the best chicken parm recipe ever", description: "head oil, add onions, add tomatoes sauce, add chicken, cook for 20 minutes")
+		@recipe = @chef.recipes.build(name: "chicken parm", summary: "This is the best chicken parm recipe ever", description: "head oil, add onions, add tomatoes sauce, add chicken, cook for 20 minutes")
 	end
 
 	test "recipe should be valid" do 
 		assert @recipe.valid?
+	end
+
+	test "chef_id should be present" do
+		@recipe.chef_id = nil
+		assert_not @recipe.valid?
 	end
 
 	test "name should be present" do
