@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 # pages controller and home action in pages controller
   get '/home', to: 'pages#home'
   
+  resources :recipes
 end
