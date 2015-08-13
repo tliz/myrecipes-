@@ -1,8 +1,8 @@
 module ApplicationHelper
-	def gravator_for(chef, options = { size: 80 })
-		gravator_id = Digest::MD5::hexdigest(chef.email.downcase)
+	def gravatar_for(chef, options = { size: 80 })
+		gravatar_id = Digest::MD5::hexdigest(chef.email.downcase)
 		size = options[:size]
-		gravator_url = "http://www.gravatar.com/avatar/#{gravator_id}?s=#{size}"
-		image_tag(gravator_url, alt: chef.chefname, class: "gravator")
+		gravatar_url = "http://www.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+		image_tag(gravatar_url, alt: chef.chefname, class: "gravatar")
 	end
 end
