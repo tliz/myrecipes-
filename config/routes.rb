@@ -4,5 +4,15 @@ Rails.application.routes.draw do
 # pages controller and home action in pages controller
   get '/home', to: 'pages#home'
   
-  resources :recipes
+  resources :recipes do
+  	# recipe/2/like
+  	member do
+  		post 'like'
+  	end
+  end
+
+
+  #
+
+
 end
